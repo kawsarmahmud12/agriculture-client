@@ -10,6 +10,7 @@ import registerAnimation from '../../../dist/LoginAnimation.json'
 const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const nameRef = useRef();
     const emailRef = useRef();
     const navigate = useNavigate();
     const location = useLocation();
@@ -21,18 +22,19 @@ const Login = () => {
         setError('');
         event.preventDefault()
         const form = event.target;
+        // const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        console.log(email, password, name);
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 form.reset()
                 navigate(from, { replace: true })
-                if(!loggedUser.emailVerified){
-                   
+                if (!loggedUser.emailVerified) {
+
                 }
             })
             .catch(error => {
@@ -66,19 +68,22 @@ const Login = () => {
 
     }
 
-    const handleResetPassword = event =>{
+    const handleResetPassword = event => {
         console.log(emailRef.current);
     }
 
     return (
         <div className='md:flex justify-between mx-56'>
-            <div className=""> 
+            <div className="">
                 <div className="hero-content flex-col">
                     <div className="text-center">
                         <h1 className="mt-20 text-4xl lg:text-5xl font-bold">Login now!</h1>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleLogin} className="card-body">
+                            {/* <div className="form-control mb-2">
+                                <input type="text" name="name" ref={nameRef} placeholder="Your Name" className="input input-bordered" required />
+                            </div> */}
                             <div className="form-control">
                                 <input type="email" name="email" ref={emailRef} placeholder="email" className="input input-bordered" required />
                             </div>
@@ -110,7 +115,7 @@ const Login = () => {
                 </div>
             </div>
             <div className='w-96 mt-40'>
-              <Lottie animationData={registerAnimation} loop={true} />;
+                <Lottie animationData={registerAnimation} loop={true} />;
             </div>
         </div>
     );

@@ -57,11 +57,11 @@ const ProgressBar = () => {
                 <div className="progressbar">
                     <div className="progress" id="progress"></div>
                     <div className="progress-step progress-step-active"
-                        data-title="intro"></div>
-                    <div className="progress-step" data-title="contact"></div>
-                    <div className="progress-step" data-title="product order"></div>
-                    <div className="progress-step" data-title="payment gateway"></div>
-                    <div className="progress-step" data-title="product delivery"></div>
+                        data-title="ডিলার নির্বাচন"></div>
+                    <div className="progress-step" data-title="কৃষি অফিসার"></div>
+                    <div className="progress-step" data-title="প্রোডাক্ট অর্ডার"></div>
+                    <div className="progress-step" data-title="পেমেন্ট গেটওয়ে"></div>
+                    <div className="progress-step" data-title="প্রোডাক্ট ডেলিভারি"></div>
                 </div>
 
                 {/* Steps */}

@@ -25,7 +25,7 @@ const ViewRecipes = () => {
                     {/* <p className='text-[18px] font-medium'>years of experience: {years_of_experience}</p> */}
                     <p className='text-[18px] font-medium'>num of Agriculture: {num_of_recipes}</p>
                     <p className='text-[16px] font-medium'>description: {description}</p>
-                    <Link to="/progressbar">
+                    <Link to="/payment">
                       <Button className='border-red-500 hover:bg-amber-400' variant="outline-info">Add to Cart</Button>
                     </Link>
                 </div>

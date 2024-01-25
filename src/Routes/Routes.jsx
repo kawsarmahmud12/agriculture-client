@@ -9,10 +9,11 @@ import Register from "../pages/login/Register";
 import PrivateRoute from "./PrivateRoute";
 import Terms from "../pages/shared/Terms";
 import Fertilizers from "../pages/Fertilizers/Fertilizers";
-import Insecticide from "../pages/Insecticide/Insecticide";
 import FertilizerDetails from "../pages/Fertilizers/FertilizerDetails";
 import Seeds from "../pages/Seeds/Seeds";
 import ProgressBar from "../pages/ProgressBar/ProgressBar";
+import Payment from "../pages/Payment/Payment";
+import Checkout from "../pages/Payment/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -44,14 +45,13 @@ const router = createBrowserRouter([
             loader:({params}) => fetch(`http://localhost:7000/fertilizersData/${params.id}`)
           },
           {
-            path:'/insecticide',
-            element:<Insecticide></Insecticide>,
-            loader: () => fetch('http://localhost:7000/insecticideData')
-          },
-          {
             path:'/seeds',
             element:<Seeds></Seeds>,
             loader: () => fetch('http://localhost:7000/seeds')
+          },
+          {
+            path:'/payment',
+            element:<Payment></Payment>
           },
           {
             path:'/contact',

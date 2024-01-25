@@ -42,11 +42,10 @@ const AuthProvider = ({children}) => {
     }
 
     // Update user
-    // const updateUser = (name, photoUrl)=>{
+    // const updateUser = (name)=>{
     //     setLoading(true);
     //     return updateProfile(auth.currentUser,{
-    //         displayName: name,
-    //         photoURL: photoUrl
+    //         displayName: name
     //     });
     // }
 

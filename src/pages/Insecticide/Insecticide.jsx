@@ -3,6 +3,7 @@ import banner from '../../assets/slidier2.jpeg'
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 import InsecticideCard from './InsecticideCard';
+import Loading from '../shared/Loading';
 
 const Insecticide = () => {
     useTitle("Insecticide")

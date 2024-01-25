@@ -19,11 +19,11 @@ const Register = () => {
         setError('');
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        // const name = form.name.value;
         const email = form.email.value;
         const number = form.number.value;
         const password = form.password.value;
-        console.log(name, number, password, email);
+        console.log( number, password, email);
 
         //validation
         if (password.length < 6){
@@ -59,7 +59,7 @@ const Register = () => {
         //     .then(result => {
         //         const createUser = result.user;
         //         console.log(createUser);
-        //         updateUser(name, photo)
+        //         updateUser(name)
         //             .then(() => {
         //                 form.reset()
         //             })
