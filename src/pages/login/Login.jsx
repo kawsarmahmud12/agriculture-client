@@ -5,7 +5,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa6';
 import useTitle from '../../hooks/useTitle';
 import Lottie from "lottie-react";
-import registerAnimation from '../../../dist/LoginAnimation.json'
+import loginAnimation from '../../../dist/LoginAnimation.json'
 
 const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
@@ -115,7 +115,7 @@ const Login = () => {
                 </div>
             </div>
             <div className='w-96 mt-40'>
-                <Lottie animationData={registerAnimation} loop={true} />;
+                <Lottie animationData={loginAnimation} loop={true} />;
             </div>
         </div>
     );

@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa6';
 import useTitle from '../../hooks/useTitle';
+import RegisterAnimation from '../../../dist/LoginAnimation.json'
 import Lottie from "lottie-react";
 import { sendEmailVerification } from 'firebase/auth';
 
@@ -163,7 +164,7 @@ const Register = () => {
                 </div>
             </div>
             <div className='w-96 mt-40'>
-                <Lottie animationData={LoginAnimation} loop={true} />;
+                <Lottie animationData={RegisterAnimation} loop={true} />;
             </div>
         </div>
     );
