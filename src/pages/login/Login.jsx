@@ -5,7 +5,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa6';
 import useTitle from '../../hooks/useTitle';
 import Lottie from "lottie-react";
-import loginAnimation from '../../../dist/LoginAnimation.json'
+import loginAnimation from '../../../src/assets/LoginAnimation.json'
 
 const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);

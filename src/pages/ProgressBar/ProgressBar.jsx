@@ -3,11 +3,39 @@ import { FaRegStar } from 'react-icons/fa6';
 
 const ProgressBar = () => {
     const formArray = [1, 2, 3, 4, 5];
+
     const [formNo, setFormNo] = useState(formArray[0]);
+    const [state, setState] = useState({
+        name:'',
+        number:'',
+        message:'',
+        email:'',
+        payment:'',
+        delivery:'',
+    })
+    const next = () =>{
+        setFormNo(formNo + 1);
+    }
+    const pre = () =>{
+        setFormNo(formNo-1)
+    }
 
     return (
         <div className='w-screen h-screen bg-slate-300  justify-center items-center flex'>
             <div className="card w-[660px] rounded-md shadow-md bg-white p-5">
+                <div className='flex justify-center items-center'>
+                    {
+                       formArray.map((v,i)=> <><div className='w-[35px] h-[35px] my-3 text-white rounded-full bg-blue-500 flex justify-center items-center'>
+                           {v}
+                       </div>
+                       {
+                         i !== formArray.length - 1 && <div className='w-[85px] h-[2px] bg-blue-500'>
+                            
+                         </div>
+                       }
+                       </>) 
+                    }
+                </div>
                 {
                     formNo === 1 && <div>
                         <div className='flex justify-between'>
@@ -38,22 +66,62 @@ const ProgressBar = () => {
                             </div>
                         </div>
                         <div className='mt-4 flex justify-center items-center'>
-                            <button className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
+                            <button onClick={next} className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
                         </div>
                     </div>
                 }
                 {
-                    formNo === 1 && <div>
+                    formNo === 2 && <div>
                         <div className='flex flex-col mb-1 w-1/2 p-2'>
                             <label htmlFor="number">Number</label>
-                            <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Phone Number'/>
+                            <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Phone Number' />
                         </div>
                         <div className='flex flex-col mb-1 w-1/2 p-2'>
                             <label htmlFor="message">Message</label>
                             <textarea className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md outline-none' name="text" id="" cols="30" rows="5" placeholder='Message' ></textarea>
                         </div>
                         <div className='mt-4 flex justify-center items-center'>
-                            <button className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
+                            <button onClick={pre} className='mr-2 px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Previous</button>
+                            <button onClick={next} className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
+                        </div>
+                    </div>
+                }
+                {
+                    formNo === 3 && <div>
+                        <div className='flex flex-col mb-1 w-1/2 p-2'>
+                            <label htmlFor="number">email</label>
+                            <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="email" name="email" id="email" placeholder='Email' />
+                        </div>
+                        
+                        <div className='mt-4 flex justify-center items-center'>
+                            <button onClick={pre} className='mr-2 px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Previous</button>
+                            <button onClick={next} className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
+                        </div>
+                    </div>
+                }
+                {
+                    formNo === 4 && <div>
+                        <div className='flex flex-col mb-1 w-1/2 p-2'>
+                            <label htmlFor="number">Payment</label>
+                            <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="payment" name="payment" id="payment" placeholder='payment' />
+                        </div>
+                        
+                        <div className='mt-4 flex justify-center items-center'>
+                            <button onClick={pre} className='mr-2 px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Previous</button>
+                            <button onClick={next} className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
+                        </div>
+                    </div>
+                }
+                {
+                    formNo === 5 && <div>
+                        <div className='flex flex-col mb-1 w-1/2 p-2'>
+                            <label htmlFor="number">delivery</label>
+                            <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="delivery" name="delivery" id="delivery" placeholder='delivery' />
+                        </div>
+                        
+                        <div className='mt-4 flex justify-center items-center'>
+                            <button onClick={pre} className='mr-2 px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Previous</button>
+                            <button className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>submit</button>
                         </div>
                     </div>
                 }

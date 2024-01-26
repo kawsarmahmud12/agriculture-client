@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa6';
 import useTitle from '../../hooks/useTitle';
-import RegisterAnimation from '../../../dist/LoginAnimation.json'
+import RegisterAnimation from '../../../src/assets/LoginAnimation.json'
 import Lottie from "lottie-react";
 import { sendEmailVerification } from 'firebase/auth';
 
