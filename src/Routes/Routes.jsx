@@ -14,6 +14,7 @@ import Seeds from "../pages/Seeds/Seeds";
 import ProgressBar from "../pages/ProgressBar/ProgressBar";
 import Payment from "../pages/Payment/Payment";
 import Checkout from "../pages/Payment/Checkout";
+import Progress from "../pages/ProgressBar/Progress";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
           },
           {
             path:'/progressbar',
-            element:<ProgressBar></ProgressBar>
+            element:<Progress></Progress>
           },
           {
             path:'View_Recipe/:id',

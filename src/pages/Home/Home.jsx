@@ -6,7 +6,7 @@ import banner1 from '../../assets/slidier2.jpeg'
 import { Link, useNavigation } from 'react-router-dom';
 import Loading from '../shared/Loading';
 import useTitle from '../../hooks/useTitle';
-import about from '../../../dist/assets/about.png';
+import about from '../../../src/assets/about.png';
 // import Chat from '../chat/Chat';
 // import MessengerCustomerChat from 'react-messenger-customer-chat';
 
