@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaRegCircleUser, FaSquareXmark } from "react-icons/fa6";
 import { FaBarsStaggered } from "react-icons/fa6";
 import logo from '../../assets/logo.png'
 
-const Header = () => {
+const Header = ({children}) => {
     const [isOpenMenu, setOpenMenu] = useState(false);
     const { user, logOut } = useContext(AuthContext);
     const [openProfile, setOpenProfile] = useState(false);
@@ -24,6 +24,19 @@ const Header = () => {
             .then()
             .catch(error => console.log(error))
     }
+
+    // const [scrollTop, setScrollTop] = useState(0);
+    // useEffect(() => {
+    //     const handleScroll = (event) => {
+    //       setScrollTop(window.scrollY);
+    //     };
+    
+    //     window.addEventListener('scroll', handleScroll);
+    
+    //     return () => {
+    //       window.removeEventListener('scroll', handleScroll);
+    //     };
+    //   }, []);
     return (
         <div>
             <div className="md:flex absolute navbar bg-black bg-opacity-50 justify-between container items-center z-50">

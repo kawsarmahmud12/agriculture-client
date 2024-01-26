@@ -1,145 +1,63 @@
-import React from 'react';
-import './ProgressBar.css';
+import React, { useState } from 'react';
+import { FaRegStar } from 'react-icons/fa6';
 
 const ProgressBar = () => {
-    const prevBtns = document.querySelectorAll(".btn-prev");
-    const nextBtns = document.querySelectorAll(".btn-next");
-    const progress = document.getElementById("progress");
-    const formSteps = document.querySelectorAll(".form-step");
-    const progressSteps = document.querySelectorAll(".progress-step");
+    const formArray = [1, 2, 3, 4, 5];
+    const [formNo, setFormNo] = useState(formArray[0]);
 
-    let formStepsNum = 0;
-
-    nextBtns.forEach((btnProgress) => {
-        btnProgress.addEventListener("click", () => {
-            formStepsNum++;
-            updateFormSteps();
-            updateProgressbar();
-        });
-    });
-
-    prevBtns.forEach((btnProgress) => {
-        btnProgress.addEventListener("click", () => {
-            formStepsNum--;
-            updateFormSteps();
-            updateProgressbar();
-        });
-    });
-
-    function updateFormSteps() {
-        formSteps.forEach((formStep) => {
-            formStep.classList.contains("form-step-active") &&
-                formStep.classList.remove("form-step-active");
-        });
-
-        formSteps[formStepsNum].classList.add("form-step-active");
-    }
-
-    function updateProgressbar() {
-        progressSteps.forEach((progressStep, idx) => {
-            if (idx < formStepsNum + 1) {
-                progressStep.classList.add("progress-step-active");
-            } else {
-                progressStep.classList.remove("progress-step-active");
-            }
-        });
-
-        const progressActive = document.querySelectorAll(".progress-step-active");
-
-        progress.style.width =
-            ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
-    }
     return (
-        <div className='pt-24'>
-            <form action="#" className="form">
-                <h1 className="text-center">Form</h1>
-                {/* Progress bar */}
-                <div className="progressbar">
-                    <div className="progress" id="progress"></div>
-                    <div className="progress-step progress-step-active"
-                        data-title="ডিলার নির্বাচন"></div>
-                    <div className="progress-step" data-title="কৃষি অফিসার"></div>
-                    <div className="progress-step" data-title="প্রোডাক্ট অর্ডার"></div>
-                    <div className="progress-step" data-title="পেমেন্ট গেটওয়ে"></div>
-                    <div className="progress-step" data-title="প্রোডাক্ট ডেলিভারি"></div>
-                </div>
+        <div className='w-screen h-screen bg-slate-300  justify-center items-center flex'>
+            <div className="card w-[660px] rounded-md shadow-md bg-white p-5">
+                {
+                    formNo === 1 && <div>
+                        <div className='flex justify-between'>
+                            <div className='flex flex-col mb-1 w-1/2 p-2'>
+                                <label htmlFor="name">Name</label>
+                                <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="text" name="name" id="name" placeholder='Your Name' />
+                            </div>
+                            <div className='flex flex-col mb-1 w-1/2 p-2'>
+                                <label htmlFor="name">Image</label>
+                                <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="file" name="" id="" />
+                            </div>
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='flex flex-col mb-2 w-1/2 p-2'>
+                                <label htmlFor="number">Product Number</label>
+                                <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Product Number' />
+                            </div>
+                            <div className='flex flex-col mt-2 w-1/2 p-2'>
+                                <label htmlFor="number">Rating</label>
+                                <div className='flex p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md ml-1 mr-1'>
+                                    <p className='text-yellow-400 mr-1'><FaRegStar /></p>
+                                    <p className='text-yellow-400 mr-1'><FaRegStar /></p>
+                                    <p className='text-yellow-400 mr-1'><FaRegStar /></p>
+                                    <p className='text-yellow-400 mr-1'><FaRegStar /></p>
+                                    <p className='text-yellow-400'><FaRegStar /></p>
 
-                {/* Steps */}
-                <div className="form-step form-step-active">
-                    
-                    <div className="input-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" placeholder='Your Email' required />
+                                </div>
+                            </div>
+                        </div>
+                        <div className='mt-4 flex justify-center items-center'>
+                            <button className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
+                        </div>
                     </div>
-                    <div className="input-group">
-                        <label for="detail">Details</label>
-                        <textarea className='details' name="detail" id="detail" cols="50" rows="4" placeholder='Your Details'></textarea>
+                }
+                {
+                    formNo === 1 && <div>
+                        <div className='flex flex-col mb-1 w-1/2 p-2'>
+                            <label htmlFor="number">Number</label>
+                            <input className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Phone Number'/>
+                        </div>
+                        <div className='flex flex-col mb-1 w-1/2 p-2'>
+                            <label htmlFor="message">Message</label>
+                            <textarea className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md outline-none' name="text" id="" cols="30" rows="5" placeholder='Message' ></textarea>
+                        </div>
+                        <div className='mt-4 flex justify-center items-center'>
+                            <button className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
+                        </div>
                     </div>
-                    <div className="">
-                        <a href="#" className="btnProgress btn-next width-50 ml-auto">Next</a>
-                    </div>
-                </div>
-                <div className="form-step">
-                    <div className="input-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" name="phone" id="phone" />
-                    </div>
-                    <div className="input-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" />
-                    </div>
-                    <div className="btns-group">
-                        <a href="#" className="btnProgress btn-prev">Previous</a>
-                        <a href="#" className="btnProgress btn-next">Next</a>
-                    </div>
-                </div>
-                <div className="form-step">
-                    <div className="input-group">
-                        <label for="dob">Date of Birth</label>
-                        <input type="date" name="dob" id="dob" />
-                    </div>
-                    <div className="input-group">
-                        <label for="ID">National ID</label>
-                        <input type="number" name="ID" id="ID" />
-                    </div>
-                    <div className="btns-group">
-                        <a href="#" className="btnProgress btn-prev">Previous</a>
-                        <a href="#" className="btnProgress btn-next">Next</a>
-                    </div>
-                </div>
-                <div className="form-step">
-                    <div className="input-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" />
-                    </div>
-                    <div className="input-group">
-                        <label for="price">Price</label>
-                        <input type="text" name="price" id="price"/>
-                    </div>
-                    <div className="btns-group">
-                        <a href="#" className="btnProgress btn-prev">Previous</a>
-                        <a href="#" className="btnProgress btn-next">Next</a>
-                    </div>
-                </div>
-                <div className="form-step">
-                    <div className="input-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" />
-                    </div>
-                    <div className="input-group">
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input
-                            type="password"
-                            name="confirmPassword"
-                            id="confirmPassword"
-                        />
-                    </div>
-                    <div className="btns-group">
-                        <a href="#" className="btnProgress btn-prev">Previous</a>
-                        <input type="submit" value="Submit" className="btnProgress" />
-                    </div>
-                </div>
-            </form>
+                }
+            </div>
         </div>
     );
 };
