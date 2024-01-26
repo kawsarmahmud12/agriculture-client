@@ -5,8 +5,6 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa6';
 import useTitle from '../../hooks/useTitle';
 import Lottie from "lottie-react";
-import LoginAnimation from '../../../dist/LoginAnimation.json'
-import { toast } from 'react-toastify';
 import { sendEmailVerification } from 'firebase/auth';
 
 const Register = () => {
