@@ -28,7 +28,7 @@ const router = createBrowserRouter([
           },
           {
             path:'/progressbar',
-            element:<Progress></Progress>
+            element:<ProgressBar></ProgressBar>
           },
           {
             path:'View_Recipe/:id',

@@ -22,10 +22,17 @@ const ProgressBar = () => {
 
     return (
         <div className='w-screen h-screen bg-slate-300  justify-center items-center flex'>
-            <div className="card w-[660px] rounded-md shadow-md bg-white p-5">
+            <div className="card lg:w-[660px] md:w-[460px] sm:w-[360px] rounded-md shadow-md bg-white p-5">
+                <div className='flex justify-between px-8 text-center'>
+                    <div><p>ডিলার নির্বাচন</p></div>
+                    <div><p>কৃষি অফিসার</p></div>
+                    <div><p>প্রোডাক্ট অর্ডার</p></div>
+                    <div><p>পেমেন্ট</p></div>
+                    <div className='mr-5'> <p>ডেলিভারি</p></div> 
+                </div>
                 <div className='flex justify-center items-center'>
                     {
-                       formArray.map((v,i)=> <><div className='w-[35px] h-[35px] my-3 text-white rounded-full bg-blue-500 flex justify-center items-center'>
+                       formArray.map((v,i)=> <><div className='w-[35px] h-[35px] my-3 text-white rounded-full bg-slate-400 flex justify-center items-center'>
                            {v}
                        </div>
                        {
