@@ -9,23 +9,36 @@ const ProgressBar = () => {
     const [formNo, setFormNo] = useState(formArray[0]);
     const [state, setState] = useState({
         name:'',
-        ProductNumber:'',
+        file: '',
+        number:'',
         message:'',
         email:'',
         payment:'',
         delivery:'',
     })
-    const inputHandle = e =>{
+    const inputHandle = (e) =>{
         setState({
             ...state,
-            [e.target.name]:e.target.value
+            [e.target.name] : e.target.value,
         })
     }
     const next = () =>{
-        if(formNo === 1 && state.name && state.ProductNumber){
+        if(formNo === 1 && state.name && state.file && state.number){
+            setFormNo(formNo + 1);
+        }
+        else if(formNo === 2 && state.number && state.message){
+            setFormNo(formNo + 1);
+        }
+        else if(formNo === 3 && state.email){
+            setFormNo(formNo + 1);
+        }
+        else if(formNo === 4 && state.payment){
+            setFormNo(formNo + 1);
+        }
+        else if(formNo === 5 && state.delivery){
             setFormNo(formNo + 1);
         }else{
-           toast.error('Please fillup all input field') ;
+            toast.error('fillup all input field')
         }
         
     }
@@ -64,17 +77,17 @@ const ProgressBar = () => {
                                 <label htmlFor="name">Name</label>
                                 <input onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="text" name="name" id="name" placeholder='Your Name' />
                             </div>
-                            {/* <div className='flex flex-col mb-1 w-1/2 p-2'>
+                            <div className='flex flex-col mb-1 w-1/2 p-2'>
                                 <label htmlFor="name">Image</label>
-                                <input onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="file" name="" id="" />
-                            </div> */}
+                                <input onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="file" name="file" id="file" />
+                            </div>
                         </div>
                         <div className='flex justify-between'>
                             <div className='flex flex-col mb-2 w-1/2 p-2'>
                                 <label htmlFor="number">Product Number</label>
-                                <input onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Product Number' />
+                                <input onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Product Number'/>
                             </div>
-                            {/* <div className='flex flex-col mt-2 w-1/2 p-2'>
+                            <div className='flex flex-col mt-2 w-1/2 p-2'>
                                 <label htmlFor="number">Rating</label>
                                 <div className='flex p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md ml-1 mr-1'>
                                     <p className='text-yellow-400 mr-1'><FaRegStar /></p>
@@ -84,7 +97,7 @@ const ProgressBar = () => {
                                     <p className='text-yellow-400'><FaRegStar /></p>
 
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
                         <div className='mt-4 flex justify-center items-center'>
                             <button onClick={next} className='px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Next</button>
@@ -95,11 +108,11 @@ const ProgressBar = () => {
                     formNo === 2 && <div>
                         <div className='flex flex-col mb-1 w-1/2 p-2'>
                             <label htmlFor="number">Number</label>
-                            <input onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Phone Number' />
+                            <input onChange={inputHandle}  className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md' type="number" name="number" id="number" placeholder='Phone Number' />
                         </div>
                         <div className='flex flex-col mb-1 w-1/2 p-2'>
                             <label htmlFor="message">Message</label>
-                            <textarea onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md outline-none' name="text" id="" cols="30" rows="5" placeholder='Message' ></textarea>
+                            <textarea onChange={inputHandle} className='p-2 border border-slate-400 mt-1  outline-0 focus:border-blue-500 rounded-md outline-none 'type='text'name="message" id="message" cols="30" rows="5" placeholder='Message' ></textarea>
                         </div>
                         <div className='mt-4 flex justify-center items-center'>
                             <button onClick={pre} className='mr-2 px-3 py-2 text-lg rounded-md w-1/2 text-white bg-blue-500'>Previous</button>
