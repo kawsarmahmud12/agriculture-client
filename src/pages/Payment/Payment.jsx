@@ -9,10 +9,11 @@ import axios from 'axios';
 const Payment = () => {
     const [totalAmount, setTotalAmount] = useState(10);
     const price = totalAmount*100;
-
+// axios.
     const Ontoken = token =>{
         const data = {token, totalAmount}
-        axios.post('http://localhost:5173/payment', data).then(res =>{
+        post('http://localhost:7000/payment', data)
+        .then(res =>{
             console.log(res);
             alert("payment successfully");
         }).catch(err => console.log(err));

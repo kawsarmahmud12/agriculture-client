@@ -21,7 +21,8 @@ const FertilizerCard = ({ fertilizer }) => {
                             <p className='text-yellow-400'> <FaStar /></p>
                         </div>
                     </div>
-                    <Link to={`/FertilizerDetails/${id}`} className="card-actions justify-end">
+                    {/* {`/FertilizerDetails/${id}`} */}
+                    <Link to="/payment" className="card-actions justify-end">
                         <button className="btn btn-primary">Buy Now</button>
                     </Link>
                 </div>

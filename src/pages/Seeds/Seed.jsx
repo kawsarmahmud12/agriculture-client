@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigation } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import Loading from '../shared/Loading';
 import { FaStar } from 'react-icons/fa6';
 
@@ -30,7 +30,9 @@ const Seed = ({ seed }) => {
                         </div>
                     </div>
                     <div className="card-actions justify-end">
-                       <button className="btn btn-outline btn-success">Buy Now</button>
+                       <Link to="/payment">
+                           <button className="btn btn-outline btn-success">Buy Now</button>
+                       </Link>
                     </div>
                 </div>
             </div>
